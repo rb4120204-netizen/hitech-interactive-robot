@@ -1,0 +1,62 @@
+# Robot Configuration File
+
+robot:
+  name: "Interactive Robot"
+  version: "1.0.0"
+  description: "Hi-Tech Interactive Robot with Voice and Gesture Control"
+
+# Speech Recognition Settings
+speech:
+  language: "en-US"  # Language code (en-US, en-GB, es-ES, etc.)
+  timeout: 5  # Listening timeout in seconds
+  phrase_time_limit: 10  # Maximum phrase duration
+  energy_threshold: 4000  # Microphone sensitivity
+
+# Text-to-Speech Settings
+tts:
+  voice_id: 0  # Voice selection (0 for default)
+  rate: 150  # Speech rate (words per minute)
+  volume: 1.0  # Volume level (0.0 to 1.0)
+
+# Hardware Configuration
+hardware:
+  # Arduino Connection
+  arduino_port: "/dev/ttyACM0"  # Serial port (COM3 on Windows)
+  baud_rate: 9600
+  
+  # LED Configuration
+  num_leds: 64  # Number of LEDs in matrix (8x8)
+  led_brightness: 0.5  # LED brightness (0.0 to 1.0)
+  led_pin: 18  # GPIO pin for LED control
+  
+  # Servo Configuration
+  servos:
+    head_pan: {pin: 0, min: 0, max: 180, default: 90}
+    head_tilt: {pin: 1, min: 0, max: 180, default: 90}
+    right_shoulder: {pin: 2, min: 0, max: 180, default: 45}
+    right_elbow: {pin: 3, min: 0, max: 180, default: 90}
+    right_wrist: {pin: 4, min: 0, max: 180, default: 90}
+    left_shoulder: {pin: 7, min: 0, max: 180, default: 45}
+    left_elbow: {pin: 8, min: 0, max: 180, default: 90}
+    left_wrist: {pin: 9, min: 0, max: 180, default: 90}
+
+# Vision Settings
+vision:
+  camera_index: 0  # Camera device index
+  resolution: [640, 480]  # Camera resolution [width, height]
+  fps: 30  # Frames per second
+  face_detection_scale: 1.1
+  face_min_neighbors: 5
+
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: "robot.log"
+  max_size: 10485760  # 10MB
+  backup_count: 5
+
+# AI Settings
+ai:
+  confidence_threshold: 0.7
+  context_memory_size: 10
+  response_timeout: 3.0
